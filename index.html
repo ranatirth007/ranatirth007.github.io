@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tirth Rana | Cybersecurity Analyst & Ethical Hacker</title>
+  <meta name="description" content="Portfolio of Tirth Rana — Cybersecurity Analyst, Penetration Tester & Certified Ethical Hacker based in Surat, India." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div id="cursor" aria-hidden="true"></div>
+  <div id="cursor-trail" aria-hidden="true"></div>
+
+  <!-- Matrix Rain Canvas -->
+  <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-logo">
+      <span class="logo-bracket">[</span>
+      <span class="logo-text">TR</span>
+      <span class="logo-bracket">]</span>
+    </div>
+    <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links" role="list">
+      <li><a href="#home" class="nav-link" data-section="home">Home</a></li>
+      <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+      <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+      <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+      <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+      <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero" aria-label="Introduction">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>Available for opportunities</span>
+        </div>
+        <p class="hero-pre" id="typed-pre">root@system:~$ ./</p>
+        <h1 class="hero-name" id="typed-name"></h1>
+        <p class="hero-role" id="typed-role"></p>
+        <p class="hero-desc">
+          Computer Engineering student at Pithawala College of Technology, Surat.<br />
+          Blending technical precision with entrepreneurial vision.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary" id="view-work-btn">
+            <span>View My Work</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#contact" class="btn btn-outline" id="contact-me-btn">Contact Me</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">5+</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">CEH</span>
+            <span class="stat-label">Certified</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">5</span>
+            <span class="stat-label">Languages</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hex-grid">
+          <div class="hex" style="--d:0s"><span>CEH</span></div>
+          <div class="hex" style="--d:.2s"><span>PEN</span></div>
+          <div class="hex" style="--d:.4s"><span>ETH</span></div>
+          <div class="hex" style="--d:.6s"><span>PY</span></div>
+          <div class="hex" style="--d:.8s"><span>CTF</span></div>
+          <div class="hex" style="--d:1s"><span>SEC</span></div>
+        </div>
+        <div class="terminal-widget">
+          <div class="terminal-bar">
+            <span class="t-dot red"></span>
+            <span class="t-dot yellow"></span>
+            <span class="t-dot green"></span>
+            <span class="t-title">tirth@kali: ~</span>
+          </div>
+          <div class="terminal-body" id="terminal-body"></div>
+        </div>
+      </div>
+      <div class="scroll-indicator" aria-label="Scroll down">
+        <div class="scroll-arrow"></div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section" aria-labelledby="about-heading">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-tag">// 01</span>
+          <h2 id="about-heading" class="section-title">About<span class="accent">_</span>Me</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-card glass-card reveal">
+            <div class="about-avatar">
+              <div class="avatar-ring">
+                <div class="avatar-inner">
+                  <svg width="80" height="80" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+                    <circle cx="40" cy="30" r="16" stroke="#00ff88" stroke-width="2"/>
+                    <path d="M12 70c0-15.464 12.536-28 28-28s28 12.536 28 28" stroke="#00ff88" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="40" cy="30" r="8" fill="#00ff8820"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="about-info">
+              <h3 class="about-name">Tirth Rohit Rana</h3>
+              <p class="about-role-label">Cybersecurity Analyst &amp; Ethical Hacker</p>
+              <div class="about-details">
+                <div class="detail-item">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.5A4.5 4.5 0 0 0 3.5 6c0 3.5 4.5 8.5 4.5 8.5S12.5 9.5 12.5 6A4.5 4.5 0 0 0 8 1.5Z" stroke="#00ff88" stroke-width="1.5"/><circle cx="8" cy="6" r="1.5" stroke="#00ff88" stroke-width="1.5"/></svg>
+                  <span>Surat, Gujarat, India</span>
+                </div>
+                <div class="detail-item">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4l6 5 6-5M2 4h12v9H2V4Z" stroke="#00ff88" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                  <span>tirthrana1240@gmail.com</span>
+                </div>
+                <div class="detail-item">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="2" stroke="#00ff88" stroke-width="1.5"/><path d="M5 8h6M5 5.5h4M5 10.5h3" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  <span>Pithawala College of Technology</span>
+                </div>
+              </div>
+              <div class="about-social">
+                <a href="https://github.com/ranatirth007" target="_blank" rel="noopener" class="social-link" id="github-link" aria-label="GitHub">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/tirthrohitrana?utm_source=share&amp;utm_campaign=share_via&amp;utm_content=profile&amp;utm_medium=android_app" target="_blank" rel="noopener" class="social-link" id="linkedin-link" aria-label="LinkedIn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065Zm1.782 13.019H3.555V9h3.564v11.452ZM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003Z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="about-text reveal" style="--delay:.15s">
+            <p>I am a <span class="highlight">Computer Engineering student</span> at Pithawala College of Technology with a deep passion for cybersecurity, ethical hacking, and cutting-edge technology.</p>
+            <p>I successfully completed a <span class="highlight">Cyber Security internship in Noida</span> and earned my <span class="highlight">Certified Ethical Hacker (CEH)</span> credential. I am also the <span class="highlight">Founder of Blumonk</span>, a digital services company where I blend technical knowledge with entrepreneurial insight.</p>
+            <p>As a <span class="highlight">Leader at Viral Fission</span>, I have honed my leadership and communication skills. I enjoy coding, exploring new technologies, and collaborating on innovative projects that bridge technology and real-world impact.</p>
+            <div class="about-tags">
+              <span class="tag">Ethical Hacking</span>
+              <span class="tag">Penetration Testing</span>
+              <span class="tag">Python</span>
+              <span class="tag">Django</span>
+              <span class="tag">Digital Marketing</span>
+              <span class="tag">Entrepreneurship</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section section-alt" aria-labelledby="skills-heading">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-tag">// 02</span>
+          <h2 id="skills-heading" class="section-title">Skill<span class="accent">_</span>Matrix</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-category glass-card reveal">
+            <div class="skill-cat-header">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2Z" stroke="#00ff88" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              <h3>Security</h3>
+            </div>
+            <ul class="skill-list" role="list">
+              <li class="skill-item"><span class="skill-name">Ethical Hacking</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:90%" data-pct="90%"></div></div></li>
+              <li class="skill-item"><span class="skill-name">Penetration Testing</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:85%" data-pct="85%"></div></div></li>
+              <li class="skill-item"><span class="skill-name">Vulnerability Assessment</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:80%" data-pct="80%"></div></div></li>
+              <li class="skill-item"><span class="skill-name">Network Security</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:75%" data-pct="75%"></div></div></li>
+            </ul>
+          </div>
+          <div class="skill-category glass-card reveal" style="--delay:.1s">
+            <div class="skill-cat-header">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><polyline points="16 18 22 12 16 6" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="8 6 2 12 8 18" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <h3>Development</h3>
+            </div>
+            <ul class="skill-list" role="list">
+              <li class="skill-item"><span class="skill-name">Python</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:85%" data-pct="85%"></div></div></li>
+              <li class="skill-item"><span class="skill-name">Django</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:70%" data-pct="70%"></div></div></li>
+              <li class="skill-item"><span class="skill-name">JavaScript</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:65%" data-pct="65%"></div></div></li>
+              <li class="skill-item"><span class="skill-name">HTML / CSS</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:75%" data-pct="75%"></div></div></li>
+            </ul>
+          </div>
+          <div class="skill-category glass-card reveal" style="--delay:.2s">
+            <div class="skill-cat-header">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="#00ff88" stroke-width="1.5"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <h3>Soft Skills</h3>
+            </div>
+            <ul class="skill-list" role="list">
+              <li class="skill-item"><span class="skill-name">Leadership</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:90%" data-pct="90%"></div></div></li>
+              <li class="skill-item"><span class="skill-name">Communication</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:88%" data-pct="88%"></div></div></li>
+              <li class="skill-item"><span class="skill-name">Team Management</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:85%" data-pct="85%"></div></div></li>
+              <li class="skill-item"><span class="skill-name">Digital Marketing</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:80%" data-pct="80%"></div></div></li>
+            </ul>
+          </div>
+          <div class="skill-category glass-card reveal" style="--delay:.3s">
+            <div class="skill-cat-header">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#00ff88" stroke-width="1.5"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z" stroke="#00ff88" stroke-width="1.5"/></svg>
+              <h3>Languages</h3>
+            </div>
+            <ul class="skill-list" role="list">
+              <li class="skill-item"><span class="skill-name">English</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:95%" data-pct="Fluent"></div></div></li>
+              <li class="skill-item"><span class="skill-name">Gujarati</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:98%" data-pct="Native"></div></div></li>
+              <li class="skill-item"><span class="skill-name">Hindi</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:90%" data-pct="Fluent"></div></div></li>
+              <li class="skill-item"><span class="skill-name">Spanish / German</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:35%" data-pct="Basic"></div></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section" aria-labelledby="projects-heading">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-tag">// 03</span>
+          <h2 id="projects-heading" class="section-title">Project<span class="accent">_</span>Vault</h2>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card glass-card reveal" id="proj-password">
+            <div class="project-header">
+              <div class="project-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" stroke="#00ff88" stroke-width="1.5"/><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="16" r="1.5" fill="#00ff88"/></svg>
+              </div>
+              <div class="project-tags"><span class="ptag">Python</span><span class="ptag">Regex</span></div>
+            </div>
+            <h3 class="project-title">Password Complexity Checker</h3>
+            <p class="project-desc">A tool that analyzes your password strength using Regex patterns and tells whether it is strong enough or weak, providing actionable feedback.</p>
+            <div class="project-footer"><a href="#" class="proj-link" aria-label="View Password Complexity Checker"><span>View Project</span><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+          </article>
+
+          <article class="project-card glass-card reveal" id="proj-keylogger" style="--delay:.1s">
+            <div class="project-header">
+              <div class="project-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" stroke="#00ff88" stroke-width="1.5"/><path d="M6 11h.01M10 11h.01M14 11h.01M18 11h.01M6 15h.01M10 15h.01M14 15h4" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round"/><path d="M8 7V5a2 2 0 0 1 4 0v2" stroke="#00ff88" stroke-width="1.5"/></svg>
+              </div>
+              <div class="project-tags"><span class="ptag">Python</span><span class="ptag">Pynput</span></div>
+            </div>
+            <h3 class="project-title">Keylogger Detection Script</h3>
+            <p class="project-desc">A Python tool built with Pynput that logs every key pressed and mouse movement on a target machine, capturing and saving data for forensic analysis.</p>
+            <div class="project-footer"><a href="#" class="proj-link" aria-label="View Keylogger Detection Script"><span>View Project</span><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+          </article>
+
+          <article class="project-card glass-card reveal" id="proj-morse" style="--delay:.2s">
+            <div class="project-header">
+              <div class="project-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h2M9 12h.01M12 12h4M18 12h.01" stroke="#00ff88" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="#00ff88" stroke-width="1.5"/></svg>
+              </div>
+              <div class="project-tags"><span class="ptag">Adafruit</span><span class="ptag">Hardware</span></div>
+            </div>
+            <h3 class="project-title">Morse Code Decoder/Encoder</h3>
+            <p class="project-desc">Hardware-software fusion project supporting two modes: encoding text to Morse with OLED display and buzzer beeps, and decoding Morse back to English.</p>
+            <div class="project-footer"><a href="#" class="proj-link" aria-label="View Morse Code project"><span>View Project</span><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+          </article>
+
+          <article class="project-card glass-card reveal" id="proj-canteen" style="--delay:.3s">
+            <div class="project-header">
+              <div class="project-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 3h18l-2 9H5L3 3Z" stroke="#00ff88" stroke-width="1.5" stroke-linejoin="round"/><path d="M5 12l2 7h10l2-7" stroke="#00ff88" stroke-width="1.5" stroke-linejoin="round"/><circle cx="9" cy="21" r="1" fill="#00ff88"/><circle cx="15" cy="21" r="1" fill="#00ff88"/></svg>
+              </div>
+              <div class="project-tags"><span class="ptag">JavaScript</span><span class="ptag">HTML</span></div>
+            </div>
+            <h3 class="project-title">Canteen Management System</h3>
+            <p class="project-desc">Solves canteen queue problems with online table booking, reservation management, real-time order notifications, and staff admin features.</p>
+            <div class="project-footer"><a href="#" class="proj-link" aria-label="View Canteen System project"><span>View Project</span><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+          </article>
+
+          <article class="project-card glass-card reveal" id="proj-ransomware" style="--delay:.4s">
+            <div class="project-header">
+              <div class="project-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2L2 7v5c0 5.25 4.2 10.17 10 11.38C17.8 22.17 22 17.25 22 12V7L12 2Z" stroke="#00ff88" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="project-tags"><span class="ptag">Python</span><span class="ptag">Cryptography</span></div>
+            </div>
+            <h3 class="project-title">Ransomware Simulator</h3>
+            <p class="project-desc">Simulates a ransomware attack in a controlled environment using Tkinter and Fernet encryption. Sends a ransom popup for educational demonstration.</p>
+            <div class="project-footer"><a href="#" class="proj-link" aria-label="View Ransomware Simulator project"><span>View Project</span><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section section-alt" aria-labelledby="experience-heading">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-tag">// 04</span>
+          <h2 id="experience-heading" class="section-title">Experience<span class="accent">_</span>Log</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item reveal" id="exp-vapt">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <div class="tl-header">
+                <div><h3 class="tl-title">Cyber Security Intern — VAPT</h3><p class="tl-company">Jemistry Info Solutions LLP</p></div>
+                <span class="tl-badge">Jan 2025 – Jul 2025</span>
+              </div>
+              <p class="tl-desc">Completed a 6-month hands-on internship in Vulnerability Assessment &amp; Penetration Testing (VAPT). Conducted network and web application penetration tests, identified critical vulnerabilities, and delivered detailed security assessment reports to clients.</p>
+              <div class="tl-skills"><span class="tl-tag">VAPT</span><span class="tl-tag">Web App PenTest</span><span class="tl-tag">Network Security</span><span class="tl-tag">Burp Suite</span><span class="tl-tag">Nmap</span></div>
+            </div>
+          </div>
+          <div class="timeline-item reveal" id="exp-internship" style="--delay:.12s">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <div class="tl-header">
+                <div><h3 class="tl-title">Cyber Security Intern</h3><p class="tl-company">Noida, India</p></div>
+                <span class="tl-badge">Internship</span>
+              </div>
+              <p class="tl-desc">Successfully completed a comprehensive Cyber Security internship, earning the certified credential. Gained hands-on experience in threat analysis, vulnerability scanning, and security protocols.</p>
+              <div class="tl-skills"><span class="tl-tag">Threat Analysis</span><span class="tl-tag">Vulnerability Scanning</span><span class="tl-tag">CEH</span></div>
+            </div>
+          </div>
+          <div class="timeline-item reveal" id="exp-blumonk" style="--delay:.15s">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <div class="tl-header">
+                <div><h3 class="tl-title">Founder &amp; CEO</h3><p class="tl-company">Blumonk Digital Services</p></div>
+                <span class="tl-badge">Entrepreneurship</span>
+              </div>
+              <p class="tl-desc">Founded Blumonk, a digital services company blending technical knowledge with entrepreneurial insight. Managed operations, client relationships, and led a team of creative professionals.</p>
+              <div class="tl-skills"><span class="tl-tag">Leadership</span><span class="tl-tag">Digital Marketing</span><span class="tl-tag">Business Dev</span></div>
+            </div>
+          </div>
+          <div class="timeline-item reveal" id="exp-viral" style="--delay:.3s">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <div class="tl-header">
+                <div><h3 class="tl-title">Team Leader</h3><p class="tl-company">Viral Fission</p></div>
+                <span class="tl-badge">Leadership</span>
+              </div>
+              <p class="tl-desc">Led the campus chapter of Viral Fission, coordinating events, managing teams, and driving community engagement. Developed strong decision-making and communication skills.</p>
+              <div class="tl-skills"><span class="tl-tag">Team Management</span><span class="tl-tag">Event Coordination</span><span class="tl-tag">Community Building</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="edu-section">
+          <h3 class="edu-heading">Education</h3>
+          <div class="edu-grid">
+            <a href="https://www.google.com/search?q=ckpcet+surat" target="_blank" rel="noopener" class="edu-card glass-card reveal" id="edu-college">
+              <div class="edu-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5Z" stroke="#00ff88" stroke-width="1.5" stroke-linejoin="round"/><path d="M6 12v5c3.333 1.667 8.667 1.667 12 0v-5" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div><p class="edu-degree">B.E. Computer Engineering</p><p class="edu-school">Pithawala College of Technology, Surat</p><p class="edu-year">Completed — May 2026</p></div>
+            </a>
+            <a href="https://www.google.com/search?q=Shri+C.C.Shah+Sarvajanik+High+School+Surat" target="_blank" rel="noopener" class="edu-card glass-card reveal" id="edu-school" style="--delay:.1s">
+              <div class="edu-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5Z" stroke="#00ff88" stroke-width="1.5" stroke-linejoin="round"/><path d="M6 12v5c3.333 1.667 8.667 1.667 12 0v-5" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div><p class="edu-degree">Science Stream — PCM (HSC)</p><p class="edu-school">Shri C.C.Shah Sarvajanik High School</p><p class="edu-year">Completed — 2022</p></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section" aria-labelledby="contact-heading">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-tag">// 05</span>
+          <h2 id="contact-heading" class="section-title">Get_In<span class="accent">_</span>Touch</h2>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <p class="contact-intro">Open to cybersecurity roles, collaborations, and interesting projects. Let's connect!</p>
+            <div class="contact-items">
+              <a href="mailto:tirthrana1240@gmail.com" class="contact-item" id="email-contact">
+                <div class="ci-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2Z" stroke="#00ff88" stroke-width="1.5"/><path d="M22 6l-10 7L2 6" stroke="#00ff88" stroke-width="1.5"/></svg></div>
+                <div class="ci-text"><span class="ci-label">Email</span><span class="ci-value">tirthrana1240@gmail.com</span></div>
+              </a>
+              <a href="https://www.linkedin.com/in/tirthrohitrana?utm_source=share&amp;utm_campaign=share_via&amp;utm_content=profile&amp;utm_medium=android_app" target="_blank" rel="noopener" class="contact-item" id="linkedin-contact">
+                <div class="ci-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065Zm1.782 13.019H3.555V9h3.564v11.452ZM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003Z"/></svg></div>
+                <div class="ci-text"><span class="ci-label">LinkedIn</span><span class="ci-value">Connect with me</span></div>
+              </a>
+              <a href="https://github.com/ranatirth007" target="_blank" rel="noopener" class="contact-item" id="github-contact">
+                <div class="ci-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"/></svg></div>
+                <div class="ci-text"><span class="ci-label">GitHub</span><span class="ci-value">View my code</span></div>
+              </a>
+              <a href="https://www.google.com/search?q=Surat+Gujarat" target="_blank" rel="noopener" class="contact-item" id="location-contact">
+                <div class="ci-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0Z" stroke="#00ff88" stroke-width="1.5"/><circle cx="12" cy="10" r="3" stroke="#00ff88" stroke-width="1.5"/></svg></div>
+                <div class="ci-text"><span class="ci-label">Location</span><span class="ci-value">Surat, Gujarat, India</span></div>
+              </a>
+            </div>
+          </div>
+          <form class="contact-form glass-card reveal" id="contact-form" style="--delay:.15s" novalidate aria-label="Contact form">
+            <div class="form-group">
+              <label for="form-name" class="form-label">Name</label>
+              <input type="text" id="form-name" name="name" class="form-input" placeholder="Your Name" autocomplete="name" required />
+            </div>
+            <div class="form-group">
+              <label for="form-email" class="form-label">Email</label>
+              <input type="email" id="form-email" name="email" class="form-input" placeholder="your@email.com" autocomplete="email" required />
+            </div>
+            <div class="form-group">
+              <label for="form-message" class="form-label">Message</label>
+              <textarea id="form-message" name="message" class="form-input form-textarea" placeholder="Tell me about your project or opportunity..." rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="send-message-btn">
+              <span>Send Message</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-logo"><span class="logo-bracket">[</span><span class="logo-text">TR</span><span class="logo-bracket">]</span></div>
+      <p class="footer-copy">2026 Tirth Rohit Rana. Built with passion &amp; code.</p>
+      <p class="footer-credit">Cybersecurity Analyst &middot; Ethical Hacker &middot; Developer</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
