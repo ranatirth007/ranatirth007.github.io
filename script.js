@@ -345,7 +345,136 @@
         }
       `;
       document.head.appendChild(style);
+     }
+  })();
+
+  /* ── 12. HEX TILE MODALS ── */
+  (function initHexModals() {
+    const modal    = document.getElementById('hex-modal');
+    const backdrop = document.getElementById('modal-backdrop');
+    const closeBtn = document.getElementById('modal-close');
+    const iconEl   = document.getElementById('modal-icon');
+    const tagEl    = document.getElementById('modal-tag');
+    const titleEl  = document.getElementById('modal-title');
+    const descEl   = document.getElementById('modal-desc');
+    const factsEl  = document.getElementById('modal-facts');
+    const tagsEl   = document.getElementById('modal-tags');
+    if (!modal) return;
+
+    const hexData = {
+      CEH: {
+        icon: 'CEH', tag: 'Certification',
+        title: 'Certified Ethical Hacker',
+        desc: 'The Certified Ethical Hacker (CEH) is a globally recognized cybersecurity certification by EC-Council. It validates expertise in identifying vulnerabilities and weaknesses in target systems using the same knowledge, tools, and techniques as malicious hackers — but in a lawful and legitimate manner.',
+        facts: [
+          'Covers 20 security domains including network security, cryptography, and social engineering',
+          'Demonstrates ability to think and act like a hacker to better defend systems',
+          'Recognised by top companies like Amazon, Microsoft, IBM, and government agencies',
+          'Involves hands-on labs simulating real-world attack and defense scenarios',
+          'Tirth earned this credential after completing his Cyber Security internship in Noida',
+        ],
+        tags: ['EC-Council', 'Ethical Hacking', 'InfoSec', 'Globally Recognised', 'Hands-on Labs'],
+      },
+      PEN: {
+        icon: 'PEN', tag: 'Skill',
+        title: 'Penetration Testing',
+        desc: 'Penetration Testing (Pentesting) is the practice of simulating cyberattacks against a system, network, or web application to identify exploitable vulnerabilities before malicious actors can. It is a critical component of any robust cybersecurity program.',
+        facts: [
+          'Performed VAPT (Vulnerability Assessment & Penetration Testing) at Jemistry Info Solutions LLP for 6 months',
+          'Conducted network pentests using tools like Nmap, Metasploit, and Burp Suite',
+          'Web application testing: SQL Injection, XSS, CSRF, broken authentication and more',
+          'Delivered professional security assessment reports with CVSS-scored findings',
+          'Follows methodologies like OWASP Top 10, PTES, and NIST cybersecurity frameworks',
+        ],
+        tags: ['VAPT', 'OWASP', 'Burp Suite', 'Metasploit', 'Nmap', 'Kali Linux'],
+      },
+      ETH: {
+        icon: 'ETH', tag: 'Practice',
+        title: 'Ethical Hacking',
+        desc: 'Ethical Hacking involves legally breaking into computers and devices to test an organisation\'s defenses. Unlike malicious hackers, ethical hackers have explicit permission from the owner and operate within strict legal and moral boundaries to expose security gaps before criminals do.',
+        facts: [
+          'Follows full methodology: Reconnaissance → Scanning → Exploitation → Post-Exploitation → Reporting',
+          'Expertise in social engineering, phishing simulations, and password cracking techniques',
+          'Experience with network sniffing, man-in-the-middle attacks, and privilege escalation',
+          'Developed educational tools including a Ransomware Simulator and Keylogger in Python',
+          'Adheres strictly to responsible disclosure — always operates with explicit written permission',
+        ],
+        tags: ['Recon', 'Exploitation', 'Post-Exploitation', 'Responsible Disclosure', 'Python'],
+      },
+      PY: {
+        icon: 'PY', tag: 'Language',
+        title: 'Python for Cybersecurity',
+        desc: 'Python is the most widely used programming language in cybersecurity due to its simplicity, powerful libraries, and automation capabilities. Tirth uses Python extensively to build security tools, automate repetitive tasks, and develop full-stack web applications with Django.',
+        facts: [
+          'Built a Password Complexity Checker using Regex pattern matching for strength analysis',
+          'Developed a Keylogger Detection Script using Pynput to capture keystrokes and mouse events',
+          'Created a Ransomware Simulator using Tkinter UI and Fernet symmetric encryption',
+          'Uses Django framework for building robust, scalable web applications',
+          'Automates security tasks: port scanning, log parsing, payload generation, and report creation',
+        ],
+        tags: ['Python 3', 'Django', 'Pynput', 'Cryptography', 'Tkinter', 'Regex', 'Automation'],
+      },
+      CTF: {
+        icon: 'CTF', tag: 'Competition',
+        title: 'Capture The Flag',
+        desc: 'Capture The Flag (CTF) competitions are cybersecurity challenges where participants solve security puzzles to find hidden "flags". They sharpen real-world hacking skills across web exploitation, cryptography, reverse engineering, binary exploitation, and digital forensics.',
+        facts: [
+          'CTFs build practical skills that translate directly into professional penetration testing',
+          'Categories include: Web Exploitation, Forensics, Cryptography, Pwn (Binary), OSINT, Steganography',
+          'Top platforms: HackTheBox, TryHackMe, PicoCTF, CTFtime, and PortSwigger Web Academy',
+          'Reinforces tool usage: Wireshark, GDB, John the Ripper, CyberChef, Ghidra, Radare2',
+          'Excellent for building a real portfolio and demonstrating problem-solving under pressure',
+        ],
+        tags: ['HackTheBox', 'TryHackMe', 'Web Exploitation', 'Forensics', 'Cryptography', 'OSINT'],
+      },
+      SEC: {
+        icon: 'SEC', tag: 'Domain',
+        title: 'Cybersecurity',
+        desc: 'Cybersecurity is the practice of protecting systems, networks, and programs from digital attacks and unauthorised access. As a Cybersecurity Analyst, Tirth focuses on proactively identifying threats and building robust defenses across multiple security domains.',
+        facts: [
+          'Network Security: Firewalls, IDS/IPS, VPNs, and network traffic analysis with Wireshark',
+          'Application Security: Secure coding practices, OWASP guidelines, and code review techniques',
+          'Incident Response: Threat detection, log analysis, and digital forensics evidence handling',
+          'Cryptography: Symmetric/asymmetric encryption, hashing algorithms, and PKI infrastructure',
+          'Compliance: Awareness of ISO 27001, GDPR, and major cybersecurity governance frameworks',
+        ],
+        tags: ['Network Security', 'AppSec', 'Incident Response', 'Cryptography', 'SIEM', 'Threat Intel'],
+      },
+    };
+
+    function openModal(key) {
+      const data = hexData[key];
+      if (!data) return;
+      iconEl.textContent  = data.icon;
+      tagEl.textContent   = data.tag;
+      titleEl.textContent = data.title;
+      descEl.textContent  = data.desc;
+      factsEl.innerHTML   = data.facts.map(f =>
+        `<div class="modal-fact"><span class="modal-fact-dot"></span><span>${f}</span></div>`
+      ).join('');
+      tagsEl.innerHTML = data.tags.map(t =>
+        `<span class="modal-tag-pill">${t}</span>`
+      ).join('');
+      modal.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
     }
+
+    function closeModal() {
+      modal.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('[data-hex]').forEach(hex => {
+      hex.addEventListener('click', () => openModal(hex.dataset.hex));
+      hex.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openModal(hex.dataset.hex); });
+      hex.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+      hex.addEventListener('mouseleave',  () => document.body.classList.remove('cursor-hover'));
+    });
+
+    closeBtn.addEventListener('click',  closeModal);
+    backdrop.addEventListener('click',  closeModal);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
   })();
 
 })();
