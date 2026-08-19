@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tirth Rana | Cybersecurity Analyst & Ethical Hacker</title>
   <meta name="description" content="Portfolio of Tirth Rana — Cybersecurity Analyst, Penetration Tester & Certified Ethical Hacker based in Surat, India." />
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -48,7 +51,79 @@
           <span>Available for opportunities</span>
         </div>
         <p class="hero-pre" id="typed-pre">root@system:~$ ./</p>
-        <h1 class="hero-name" id="typed-name"></h1>
+        <!-- ROTATING CYBER DOODLE -->
+            <div class="cyber-doodle" aria-hidden="true">
+              <svg class="cyber-doodle-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Outer rotating ring with dashes -->
+                <circle class="ring ring-outer" cx="100" cy="100" r="88" fill="none" stroke="#00ff88" stroke-width="1" stroke-dasharray="6 4"/>
+                <!-- Mid ring with circuit notches -->
+                <circle class="ring ring-mid" cx="100" cy="100" r="72" fill="none" stroke="#00d4ff" stroke-width="1.2" stroke-dasharray="3 8 12 8 3 50"/>
+                <!-- Inner ring -->
+                <circle class="ring ring-inner" cx="100" cy="100" r="56" fill="none" stroke="#00ff88" stroke-width="0.8" stroke-dasharray="2 6"/>
+
+                <!-- Rotating tick marks on outer ring -->
+                <g class="ring-ticks">
+                  <line x1="100" y1="10" x2="100" y2="18" stroke="#00ff88" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="100" y1="182" x2="100" y2="190" stroke="#00ff88" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="10" y1="100" x2="18" y2="100" stroke="#00ff88" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="182" y1="100" x2="190" y2="100" stroke="#00ff88" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="28.6" y1="28.6" x2="34.3" y2="34.3" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="165.7" y1="165.7" x2="171.4" y2="171.4" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="171.4" y1="28.6" x2="165.7" y2="34.3" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="28.6" y1="171.4" x2="34.3" y2="165.7" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/>
+                </g>
+
+                <!-- Scanner sweep line (rotating) -->
+                <g class="scanner-sweep">
+                  <line x1="100" y1="100" x2="100" y2="14" stroke="url(#sweepGrad)" stroke-width="1.5" stroke-linecap="round"/>
+                  <circle cx="100" cy="14" r="3" fill="#00ff88"/>
+                </g>
+
+                <!-- Corner brackets (static) -->
+                <g stroke="#00ff88" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.6">
+                  <path d="M38 22 L22 22 L22 38"/>
+                  <path d="M162 22 L178 22 L178 38"/>
+                  <path d="M38 178 L22 178 L22 162"/>
+                  <path d="M162 178 L178 178 L178 162"/>
+                </g>
+
+                <!-- Hex shape in center -->
+                <polygon class="center-hex" points="100,68 127,84 127,116 100,132 73,116 73,84" fill="rgba(0,255,136,0.05)" stroke="#00ff88" stroke-width="1.5"/>
+
+                <!-- Shield icon inside hex -->
+                <g transform="translate(84, 80)" fill="none" stroke="#00ff88" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 2L3 7v8c0 7.4 5.5 14.3 13 16 7.5-1.7 13-8.6 13-16V7L16 2z" class="shield-icon"/>
+                  <path d="M10 16l4 4 8-8" stroke="#00ff88" stroke-width="2"/>
+                </g>
+
+                <!-- Small dots orbiting -->
+                <circle class="orbit-dot dot1" cx="100" cy="14" r="2.5" fill="#00ff88"/>
+                <circle class="orbit-dot dot2" cx="186" cy="100" r="2" fill="#00d4ff"/>
+                <circle class="orbit-dot dot3" cx="100" cy="186" r="2.5" fill="#00ff88"/>
+                <circle class="orbit-dot dot4" cx="14" cy="100" r="2" fill="#00d4ff"/>
+
+                <!-- Floating binary bits -->
+                <text class="bit b1" x="138" y="46" fill="#00ff88" font-size="7" font-family="monospace" opacity="0.7">01</text>
+                <text class="bit b2" x="46" y="46" fill="#00d4ff" font-size="7" font-family="monospace" opacity="0.7">10</text>
+                <text class="bit b3" x="138" y="162" fill="#00ff88" font-size="7" font-family="monospace" opacity="0.7">11</text>
+                <text class="bit b4" x="46" y="162" fill="#00d4ff" font-size="7" font-family="monospace" opacity="0.7">00</text>
+
+                <!-- Gradient defs -->
+                <defs>
+                  <radialGradient id="glowCenter" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#00ff88" stop-opacity="0.15"/>
+                    <stop offset="100%" stop-color="#00ff88" stop-opacity="0"/>
+                  </radialGradient>
+                  <linearGradient id="sweepGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#00ff88" stop-opacity="0"/>
+                    <stop offset="100%" stop-color="#00ff88" stop-opacity="0.9"/>
+                  </linearGradient>
+                </defs>
+                <!-- Center glow -->
+                <circle cx="100" cy="100" r="56" fill="url(#glowCenter)"/>
+              </svg>
+            </div>
+            <h1 class="hero-name" id="hero-name">TIRTH RANA</h1>
         <p class="hero-role" id="typed-role"></p>
         <p class="hero-desc">
           Computer Engineering student at Pithawala College of Technology, Surat.<br />
@@ -80,12 +155,12 @@
       </div>
       <div class="hero-visual" aria-hidden="true">
         <div class="hex-grid">
-          <div class="hex" style="--d:0s"><span>CEH</span></div>
-          <div class="hex" style="--d:.2s"><span>PEN</span></div>
-          <div class="hex" style="--d:.4s"><span>ETH</span></div>
-          <div class="hex" style="--d:.6s"><span>PY</span></div>
-          <div class="hex" style="--d:.8s"><span>CTF</span></div>
-          <div class="hex" style="--d:1s"><span>SEC</span></div>
+          <div class="hex" style="--d:0s" data-hex="CEH" role="button" tabindex="0" aria-label="Learn about CEH"><span>CEH</span></div>
+          <div class="hex" style="--d:.2s" data-hex="PEN" role="button" tabindex="0" aria-label="Learn about Penetration Testing"><span>PEN</span></div>
+          <div class="hex" style="--d:.4s" data-hex="ETH" role="button" tabindex="0" aria-label="Learn about Ethical Hacking"><span>ETH</span></div>
+          <div class="hex" style="--d:.6s" data-hex="PY" role="button" tabindex="0" aria-label="Learn about Python"><span>PY</span></div>
+          <div class="hex" style="--d:.8s" data-hex="CTF" role="button" tabindex="0" aria-label="Learn about CTF"><span>CTF</span></div>
+          <div class="hex" style="--d:1s" data-hex="SEC" role="button" tabindex="0" aria-label="Learn about Security"><span>SEC</span></div>
         </div>
         <div class="terminal-widget">
           <div class="terminal-bar">
@@ -317,6 +392,17 @@
               <div class="tl-skills"><span class="tl-tag">VAPT</span><span class="tl-tag">Web App PenTest</span><span class="tl-tag">Network Security</span><span class="tl-tag">Burp Suite</span><span class="tl-tag">Nmap</span></div>
             </div>
           </div>
+          <div class="timeline-item reveal" id="exp-dcsc" style="--delay:.12s">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <div class="tl-header">
+                <div><h3 class="tl-title">DCSC — Drop Certified Security Course</h3><p class="tl-company">The Drop Organisation</p></div>
+                <span class="tl-badge">Certification</span>
+              </div>
+              <p class="tl-desc">Successfully completed the DCSC (Drop Certified Security Course) from The Drop Organisation. Gained comprehensive knowledge in cybersecurity fundamentals, threat intelligence, ethical hacking methodologies, and industry-standard defensive practices.</p>
+              <div class="tl-skills"><span class="tl-tag">DCSC</span><span class="tl-tag">Cyber Security</span><span class="tl-tag">Threat Intelligence</span><span class="tl-tag">The Drop</span></div>
+            </div>
+          </div>
           <div class="timeline-item reveal" id="exp-internship" style="--delay:.12s">
             <div class="timeline-dot"></div>
             <div class="timeline-content glass-card">
@@ -427,6 +513,28 @@
       <p class="footer-credit">Cybersecurity Analyst &middot; Ethical Hacker &middot; Developer</p>
     </div>
   </footer>
+
+  <!-- HEX MODAL -->
+  <div id="hex-modal" class="hex-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="hex-modal-backdrop" id="modal-backdrop"></div>
+    <div class="hex-modal-box glass-card">
+      <div class="hex-modal-header">
+        <div class="hex-modal-icon" id="modal-icon"></div>
+        <div>
+          <p class="hex-modal-tag" id="modal-tag"></p>
+          <h2 class="hex-modal-title" id="modal-title"></h2>
+        </div>
+        <button class="hex-modal-close" id="modal-close" aria-label="Close modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <div class="hex-modal-body">
+        <p class="hex-modal-desc" id="modal-desc"></p>
+        <div class="hex-modal-facts" id="modal-facts"></div>
+        <div class="hex-modal-tags" id="modal-tags"></div>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
