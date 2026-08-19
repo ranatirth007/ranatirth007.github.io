@@ -477,4 +477,54 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
   })();
 
+  /* ── 13. CERT CARD 3D TILT + COUNTER ── */
+  (function initCerts() {
+    // 3D tilt on cert cards
+    document.querySelectorAll('.cert-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const midX = rect.width / 2;
+        const midY = rect.height / 2;
+        const rotY = ((x - midX) / midX) * 12;
+        const rotX = ((midY - y) / midY) * 12;
+        card.style.transform = `translateY(-12px) scale(1.04) perspective(600px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+
+      // Click opens the full certificates PDF
+      card.addEventListener('click', () => {
+        window.open('Tirth_Rana_Certificates_Till_July_2025.pdf', '_blank');
+      });
+    });
+
+    // Animated counter (count up on scroll)
+    const counter = document.querySelector('.cert-count-num');
+    if (counter) {
+      let counted = false;
+      const target = parseInt(counter.textContent, 10);
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !counted) {
+            counted = true;
+            let current = 0;
+            const step = Math.ceil(target / 40);
+            const interval = setInterval(() => {
+              current += step;
+              if (current >= target) {
+                current = target;
+                clearInterval(interval);
+              }
+              counter.textContent = current;
+            }, 30);
+          }
+        });
+      }, { threshold: 0.5 });
+      io.observe(counter);
+    }
+  })();
+
 })();
