@@ -477,28 +477,66 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
   })();
 
-  /* ── 13. CERT CARD 3D TILT + COUNTER ── */
+  /* ── 13. CERT LIGHTBOX + COUNTER ── */
   (function initCerts() {
-    // 3D tilt on cert cards
-    document.querySelectorAll('.cert-card').forEach(card => {
-      card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const midX = rect.width / 2;
-        const midY = rect.height / 2;
-        const rotY = ((x - midX) / midX) * 12;
-        const rotX = ((midY - y) / midY) * 12;
-        card.style.transform = `translateY(-12px) scale(1.04) perspective(600px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-      });
+    const lb       = document.getElementById('cert-lightbox');
+    const lbImg    = document.getElementById('cert-lb-img');
+    const lbClose  = document.getElementById('cert-lb-close');
+    const lbBg     = document.getElementById('cert-lb-backdrop');
+    const lbPrev   = document.getElementById('cert-lb-prev');
+    const lbNext   = document.getElementById('cert-lb-next');
+    const lbCount  = document.getElementById('cert-lb-counter');
+    if (!lb) return;
 
-      // Click opens the full certificates PDF
-      card.addEventListener('click', () => {
-        window.open('Tirth_Rana_Certificates_Till_July_2025.pdf', '_blank');
+    // Collect all unique cert image sources
+    const allImgs = [];
+    document.querySelectorAll('.cert-img:not([aria-hidden])').forEach(img => {
+      allImgs.push(img.src);
+    });
+    let currentIdx = 0;
+
+    function openLb(idx) {
+      currentIdx = idx;
+      lbImg.src = allImgs[currentIdx];
+      lbCount.textContent = `${currentIdx + 1} / ${allImgs.length}`;
+      lb.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLb() {
+      lb.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+    }
+    function showPrev() {
+      currentIdx = (currentIdx - 1 + allImgs.length) % allImgs.length;
+      lbImg.src = allImgs[currentIdx];
+      lbCount.textContent = `${currentIdx + 1} / ${allImgs.length}`;
+    }
+    function showNext() {
+      currentIdx = (currentIdx + 1) % allImgs.length;
+      lbImg.src = allImgs[currentIdx];
+      lbCount.textContent = `${currentIdx + 1} / ${allImgs.length}`;
+    }
+
+    // Attach click to each cert image
+    document.querySelectorAll('.cert-img').forEach(img => {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', () => {
+        const src = img.src;
+        const idx = allImgs.findIndex(s => s === src);
+        openLb(idx >= 0 ? idx : 0);
       });
+    });
+
+    lbClose.addEventListener('click', closeLb);
+    lbBg.addEventListener('click', closeLb);
+    lbPrev.addEventListener('click', showPrev);
+    lbNext.addEventListener('click', showNext);
+    document.addEventListener('keydown', e => {
+      if (!lb.hasAttribute('hidden')) {
+        if (e.key === 'Escape') closeLb();
+        if (e.key === 'ArrowLeft')  showPrev();
+        if (e.key === 'ArrowRight') showNext();
+      }
     });
 
     // Animated counter (count up on scroll)
