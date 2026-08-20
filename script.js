@@ -477,6 +477,144 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
   })();
 
+  /* ── 12.5 EXPERIENCE MODAL ── */
+  (function initExpModal() {
+    const expData = {
+      vapt: {
+        emoji: '🔍',
+        title: 'Cyber Security Intern — VAPT',
+        company: 'Jemistry Info Solutions LLP',
+        duration: 'Jan 2025 – Jul 2025 · 6 months',
+        desc: 'Completed an intensive 6-month internship focused on Vulnerability Assessment & Penetration Testing (VAPT). Worked directly with clients to identify and remediate security flaws across web applications, mobile apps, and network infrastructure.',
+        points: [
+          'Performed comprehensive web application penetration testing using OWASP Top 10 methodology',
+          'Conducted network vulnerability assessments using Nmap, Nessus, and Wireshark',
+          'Utilized Burp Suite for intercepting, analyzing, and manipulating HTTP/HTTPS traffic',
+          'Identified critical SQL injection, XSS, and CSRF vulnerabilities in client applications',
+          'Prepared detailed security assessment reports with risk ratings and remediation recommendations',
+          'Collaborated with development teams to implement security patches and validate fixes'
+        ],
+        tags: ['VAPT', 'Burp Suite', 'Nmap', 'OWASP', 'Network Security', 'Web App PenTest', 'Wireshark', 'Report Writing'],
+        link: 'https://www.google.com/search?q=Jemistry+Info+Solutions+LLP',
+        linkText: 'Search Jemistry Info Solutions'
+      },
+      dcsc: {
+        emoji: '🔐',
+        title: 'DCSC — Drop Certified Security Course',
+        company: 'The Drop Organisation',
+        duration: 'Certification Program',
+        desc: 'Successfully completed the Drop Certified Security Course (DCSC), a rigorous cybersecurity certification from The Drop Organisation covering real-world attack vectors, defense strategies, and incident response.',
+        points: [
+          'Mastered cybersecurity fundamentals including CIA triad, risk management, and security frameworks',
+          'Studied advanced threat intelligence gathering and analysis techniques',
+          'Practiced ethical hacking methodologies including reconnaissance, enumeration, and exploitation',
+          'Learned industry-standard defensive practices and incident response procedures',
+          'Gained hands-on experience with security tools and techniques in lab environments',
+          'Earned the official DCSC certification credential'
+        ],
+        tags: ['DCSC', 'Cybersecurity', 'Threat Intelligence', 'Ethical Hacking', 'Incident Response', 'Security Frameworks'],
+        link: 'https://www.google.com/search?q=The+Drop+Organisation+DCSC',
+        linkText: 'Search The Drop Organisation'
+      },
+      internship: {
+        emoji: '💻',
+        title: 'Cyber Security Intern',
+        company: 'Prodigy InfoTech — Noida, India',
+        duration: 'Internship Program',
+        desc: 'Completed a comprehensive Cyber Security internship at Prodigy InfoTech, gaining hands-on experience with real-world security tools and techniques. Built practical projects including encryption tools, network sniffers, and keylogger detection scripts.',
+        points: [
+          'Developed a Caesar Cipher encryption/decryption tool for secure message encoding',
+          'Built pixel manipulation scripts for image-based steganography techniques',
+          'Created a network packet sniffer to capture and analyze network traffic in real-time',
+          'Implemented a keylogger detection and monitoring tool using Python and Pynput',
+          'Performed vulnerability scanning and threat analysis on test environments',
+          'Earned the certified internship completion credential'
+        ],
+        tags: ['Threat Analysis', 'Vulnerability Scanning', 'Python', 'Network Sniffing', 'Cryptography', 'CEH'],
+        link: 'https://github.com/ranatirth007/Cyber-Secutity-internship',
+        linkText: 'View Internship Projects on GitHub'
+      },
+      blumonk: {
+        emoji: '🚀',
+        title: 'Founder & CEO',
+        company: 'Blumonk Digital Services',
+        duration: 'Entrepreneurship',
+        desc: 'Founded and led Blumonk Digital Services, a full-service digital agency providing web development, digital marketing, and creative solutions to businesses. Managed all aspects of the company from client acquisition to project delivery.',
+        points: [
+          'Founded the company from scratch, building brand identity and market positioning',
+          'Managed end-to-end client relationships and project lifecycle',
+          'Led a team of designers, developers, and marketers to deliver client projects',
+          'Developed digital marketing strategies including SEO, social media, and content marketing',
+          'Handled business development, proposals, pricing, and contract negotiations',
+          'Grew the client base through networking, referrals, and online presence'
+        ],
+        tags: ['Leadership', 'Digital Marketing', 'Business Development', 'Web Development', 'SEO', 'Team Management'],
+        link: 'https://www.google.com/search?q=Blumonk+Digital+Services',
+        linkText: 'Search Blumonk Digital'
+      },
+      viral: {
+        emoji: '🏆',
+        title: 'Team Leader',
+        company: 'Viral Fission',
+        duration: 'Leadership Role',
+        desc: 'Led the campus chapter of Viral Fission, India\'s largest student marketing network. Organized events, coordinated campaigns, managed a team of ambassadors, and drove community engagement across the campus.',
+        points: [
+          'Led and mentored a team of campus ambassadors for marketing campaigns',
+          'Organized and executed campus events, workshops, and brand activations',
+          'Coordinated with brand partners to execute promotional strategies',
+          'Drove community engagement through social media and grassroots outreach',
+          'Developed strong decision-making, public speaking, and communication skills',
+          'Recognized as a top-performing campus leader in the region'
+        ],
+        tags: ['Team Management', 'Event Coordination', 'Community Building', 'Marketing', 'Public Speaking', 'Campus Leadership'],
+        link: 'https://www.viralfission.com/',
+        linkText: 'Visit Viral Fission Website'
+      }
+    };
+
+    const modal     = document.getElementById('exp-modal');
+    const backdrop  = document.getElementById('exp-modal-backdrop');
+    const closeBtn  = document.getElementById('exp-modal-close');
+    const mEmoji    = document.getElementById('exp-m-emoji');
+    const mTitle    = document.getElementById('exp-m-title');
+    const mCompany  = document.getElementById('exp-m-company');
+    const mDuration = document.getElementById('exp-m-duration');
+    const mDesc     = document.getElementById('exp-m-desc');
+    const mPoints   = document.getElementById('exp-m-points');
+    const mTags     = document.getElementById('exp-m-tags');
+    const mLink     = document.getElementById('exp-m-link');
+    const mLinkText = document.getElementById('exp-m-link-text');
+    if (!modal) return;
+
+    function openExpModal(key) {
+      const d = expData[key];
+      if (!d) return;
+      mEmoji.textContent = d.emoji;
+      mTitle.textContent = d.title;
+      mCompany.textContent = d.company;
+      mDuration.textContent = d.duration;
+      mDesc.textContent = d.desc;
+      mPoints.innerHTML = d.points.map(p => `<p class="exp-modal-point">${p}</p>`).join('');
+      mTags.innerHTML = d.tags.map(t => `<span>${t}</span>`).join('');
+      mLink.href = d.link;
+      mLinkText.textContent = d.linkText;
+      modal.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeExpModal() {
+      modal.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('[data-exp]').forEach(item => {
+      item.addEventListener('click', () => openExpModal(item.dataset.exp));
+      item.addEventListener('keydown', e => { if (e.key === 'Enter') openExpModal(item.dataset.exp); });
+    });
+    closeBtn.addEventListener('click', closeExpModal);
+    backdrop.addEventListener('click', closeExpModal);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeExpModal(); });
+  })();
+
   /* ── 13. CERT LIGHTBOX + COUNTER ── */
   (function initCerts() {
     const lb       = document.getElementById('cert-lightbox');
