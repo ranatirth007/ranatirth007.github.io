@@ -418,62 +418,95 @@
           <h2 id="experience-heading" class="section-title">Experience<span class="accent">_</span>Log</h2>
         </div>
         <div class="timeline">
-          <div class="timeline-item reveal" id="exp-vapt">
+          <div class="timeline-item reveal" id="exp-vapt" data-exp="vapt" tabindex="0">
             <div class="timeline-dot"></div>
-            <div class="timeline-content glass-card">
+            <div class="timeline-content glass-card tl-clickable">
               <div class="tl-header">
                 <div><h3 class="tl-title">Cyber Security Intern — VAPT</h3><p class="tl-company">Jemistry Info Solutions LLP</p></div>
                 <span class="tl-badge">Jan 2025 – Jul 2025</span>
               </div>
               <p class="tl-desc">Completed a 6-month hands-on internship in Vulnerability Assessment &amp; Penetration Testing (VAPT). Conducted network and web application penetration tests, identified critical vulnerabilities, and delivered detailed security assessment reports to clients.</p>
               <div class="tl-skills"><span class="tl-tag">VAPT</span><span class="tl-tag">Web App PenTest</span><span class="tl-tag">Network Security</span><span class="tl-tag">Burp Suite</span><span class="tl-tag">Nmap</span></div>
+              <p class="tl-click-hint">Click for details →</p>
             </div>
           </div>
-          <div class="timeline-item reveal" id="exp-dcsc" style="--delay:.12s">
+          <div class="timeline-item reveal" id="exp-dcsc" data-exp="dcsc" tabindex="0" style="--delay:.12s">
             <div class="timeline-dot"></div>
-            <div class="timeline-content glass-card">
+            <div class="timeline-content glass-card tl-clickable">
               <div class="tl-header">
                 <div><h3 class="tl-title">DCSC — Drop Certified Security Course</h3><p class="tl-company">The Drop Organisation</p></div>
                 <span class="tl-badge">Certification</span>
               </div>
               <p class="tl-desc">Successfully completed the DCSC (Drop Certified Security Course) from The Drop Organisation. Gained comprehensive knowledge in cybersecurity fundamentals, threat intelligence, ethical hacking methodologies, and industry-standard defensive practices.</p>
               <div class="tl-skills"><span class="tl-tag">DCSC</span><span class="tl-tag">Cyber Security</span><span class="tl-tag">Threat Intelligence</span><span class="tl-tag">The Drop</span></div>
+              <p class="tl-click-hint">Click for details →</p>
             </div>
           </div>
-          <div class="timeline-item reveal" id="exp-internship" style="--delay:.12s">
+          <div class="timeline-item reveal" id="exp-internship" data-exp="internship" tabindex="0" style="--delay:.12s">
             <div class="timeline-dot"></div>
-            <div class="timeline-content glass-card">
+            <div class="timeline-content glass-card tl-clickable">
               <div class="tl-header">
                 <div><h3 class="tl-title">Cyber Security Intern</h3><p class="tl-company">Noida, India</p></div>
                 <span class="tl-badge">Internship</span>
               </div>
               <p class="tl-desc">Successfully completed a comprehensive Cyber Security internship, earning the certified credential. Gained hands-on experience in threat analysis, vulnerability scanning, and security protocols.</p>
               <div class="tl-skills"><span class="tl-tag">Threat Analysis</span><span class="tl-tag">Vulnerability Scanning</span><span class="tl-tag">CEH</span></div>
+              <p class="tl-click-hint">Click for details →</p>
             </div>
           </div>
-          <div class="timeline-item reveal" id="exp-blumonk" style="--delay:.15s">
+          <div class="timeline-item reveal" id="exp-blumonk" data-exp="blumonk" tabindex="0" style="--delay:.15s">
             <div class="timeline-dot"></div>
-            <div class="timeline-content glass-card">
+            <div class="timeline-content glass-card tl-clickable">
               <div class="tl-header">
                 <div><h3 class="tl-title">Founder &amp; CEO</h3><p class="tl-company">Blumonk Digital Services</p></div>
                 <span class="tl-badge">Entrepreneurship</span>
               </div>
               <p class="tl-desc">Founded Blumonk, a digital services company blending technical knowledge with entrepreneurial insight. Managed operations, client relationships, and led a team of creative professionals.</p>
               <div class="tl-skills"><span class="tl-tag">Leadership</span><span class="tl-tag">Digital Marketing</span><span class="tl-tag">Business Dev</span></div>
+              <p class="tl-click-hint">Click for details →</p>
             </div>
           </div>
-          <div class="timeline-item reveal" id="exp-viral" style="--delay:.3s">
+          <div class="timeline-item reveal" id="exp-viral" data-exp="viral" tabindex="0" style="--delay:.3s">
             <div class="timeline-dot"></div>
-            <div class="timeline-content glass-card">
+            <div class="timeline-content glass-card tl-clickable">
               <div class="tl-header">
                 <div><h3 class="tl-title">Team Leader</h3><p class="tl-company">Viral Fission</p></div>
                 <span class="tl-badge">Leadership</span>
               </div>
               <p class="tl-desc">Led the campus chapter of Viral Fission, coordinating events, managing teams, and driving community engagement. Developed strong decision-making and communication skills.</p>
               <div class="tl-skills"><span class="tl-tag">Team Management</span><span class="tl-tag">Event Coordination</span><span class="tl-tag">Community Building</span></div>
+              <p class="tl-click-hint">Click for details →</p>
             </div>
           </div>
         </div>
+
+    <!-- EXPERIENCE DETAIL MODAL -->
+    <div id="exp-modal" class="exp-modal" hidden>
+      <div class="exp-modal-backdrop" id="exp-modal-backdrop"></div>
+      <div class="exp-modal-box glass-card">
+        <button class="exp-modal-close" id="exp-modal-close" aria-label="Close">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </button>
+        <div class="exp-modal-header">
+          <span class="exp-modal-emoji" id="exp-m-emoji"></span>
+          <div>
+            <h3 class="exp-modal-title" id="exp-m-title"></h3>
+            <p class="exp-modal-company" id="exp-m-company"></p>
+            <span class="exp-modal-duration" id="exp-m-duration"></span>
+          </div>
+        </div>
+        <div class="exp-modal-body">
+          <p class="exp-modal-desc" id="exp-m-desc"></p>
+          <h4 class="exp-modal-sub">Key Responsibilities &amp; Achievements</h4>
+          <div id="exp-m-points" class="exp-modal-points"></div>
+          <div id="exp-m-tags" class="exp-modal-tags"></div>
+        </div>
+        <a id="exp-m-link" href="#" target="_blank" rel="noopener" class="exp-modal-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span id="exp-m-link-text">Visit Company Website</span>
+        </a>
+      </div>
+    </div>
         <div class="edu-section">
           <h3 class="edu-heading">Education</h3>
           <div class="edu-grid">
