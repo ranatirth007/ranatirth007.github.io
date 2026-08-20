@@ -763,6 +763,83 @@ a.edu-card:hover::after { opacity: 1; }
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
+/* ── 17.4 EXPERIENCE MODAL ── */
+.tl-clickable { cursor: pointer; transition: border-color 0.3s, box-shadow 0.3s; }
+.tl-clickable:hover {
+  border-color: var(--clr-green);
+  box-shadow: 0 0 16px rgba(0,255,136,0.15), 0 4px 20px rgba(0,0,0,0.3);
+}
+.tl-click-hint {
+  font-family: var(--ff-mono);
+  font-size: 0.62rem;
+  color: var(--clr-muted);
+  margin-top: 0.6rem;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.tl-clickable:hover .tl-click-hint { opacity: 1; transform: translateY(0); }
+
+.exp-modal { position: fixed; inset: 0; z-index: 9998; display: flex; align-items: center; justify-content: center; }
+.exp-modal[hidden] { display: none; }
+.exp-modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.82); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.exp-modal-box {
+  position: relative; z-index: 1;
+  max-width: 580px; width: 92vw;
+  max-height: 85vh; overflow-y: auto;
+  padding: 2rem 2rem 1.6rem;
+  border-top: 2px solid var(--clr-green);
+  animation: lb-pop 0.35s cubic-bezier(.34,1.56,.64,1);
+}
+.exp-modal-close {
+  position: absolute; top: 14px; right: 14px;
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 1.5px solid var(--clr-green);
+  background: rgba(10,10,30,0.9); color: var(--clr-green);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: background 0.2s, transform 0.2s;
+}
+.exp-modal-close:hover { background: var(--clr-green-dim); transform: scale(1.1); }
+.exp-modal-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
+.exp-modal-emoji { font-size: 2.4rem; filter: drop-shadow(0 0 8px rgba(0,255,136,0.3)); }
+.exp-modal-title { font-family: var(--ff-display); font-size: 1.15rem; font-weight: 700; color: var(--clr-text); margin-bottom: 0.2rem; }
+.exp-modal-company { font-family: var(--ff-mono); font-size: 0.78rem; color: var(--clr-cyan); letter-spacing: .06em; }
+.exp-modal-duration {
+  display: inline-block; margin-top: 0.4rem;
+  padding: 3px 10px; border-radius: 99px;
+  background: var(--clr-green-dim); border: 1px solid hsla(150,100%,50%,.15);
+  font-family: var(--ff-mono); font-size: 0.62rem; color: var(--clr-green); letter-spacing: .06em;
+}
+.exp-modal-body { margin-bottom: 1.5rem; }
+.exp-modal-desc { font-size: 0.85rem; color: var(--clr-muted); line-height: 1.6; margin-bottom: 1.2rem; }
+.exp-modal-sub { font-family: var(--ff-display); font-size: 0.82rem; color: var(--clr-green); margin-bottom: 0.8rem; letter-spacing: .04em; }
+.exp-modal-points { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.2rem; }
+.exp-modal-point {
+  display: flex; align-items: flex-start; gap: 0.6rem;
+  font-size: 0.8rem; color: rgba(230,240,255,0.85); line-height: 1.5;
+}
+.exp-modal-point::before {
+  content: '▹'; color: var(--clr-green); font-weight: bold;
+  flex-shrink: 0; margin-top: 1px;
+}
+.exp-modal-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.exp-modal-tags span {
+  padding: 3px 10px; background: var(--clr-green-dim);
+  border: 1px solid hsla(150,100%,50%,.15); border-radius: 99px;
+  font-family: var(--ff-mono); font-size: 0.6rem; color: var(--clr-green); letter-spacing: .06em;
+}
+.exp-modal-link {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 10px 22px; border: 1.5px solid var(--clr-green); border-radius: var(--radius);
+  color: var(--clr-green); font-family: var(--ff-mono); font-size: 0.78rem; letter-spacing: .06em;
+  transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+.exp-modal-link:hover {
+  background: var(--clr-green-dim);
+  box-shadow: 0 0 16px rgba(0,255,136,0.2);
+  transform: translateY(-2px);
+}
+
 /* ── 17.5 CERT VAULT ── */
 
 /* Counter */
