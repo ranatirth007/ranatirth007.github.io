@@ -606,13 +606,19 @@
       document.body.style.overflow = '';
     }
 
-    document.querySelectorAll('[data-exp]').forEach(item => {
-      item.addEventListener('click', () => openExpModal(item.dataset.exp));
-      item.addEventListener('keydown', e => { if (e.key === 'Enter') openExpModal(item.dataset.exp); });
+    document.querySelectorAll('.tl-clickable').forEach(card => {
+      card.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const item = card.closest('[data-exp]');
+        if (item) openExpModal(item.dataset.exp);
+      });
     });
-    closeBtn.addEventListener('click', closeExpModal);
+    closeBtn.addEventListener('click', (e) => { e.stopPropagation(); closeExpModal(); });
     backdrop.addEventListener('click', closeExpModal);
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeExpModal(); });
+
+    // Prevent clicks on the link inside modal from closing
+    mLink.addEventListener('click', e => e.stopPropagation());
   })();
 
   /* ── 13. CERT LIGHTBOX + COUNTER ── */
