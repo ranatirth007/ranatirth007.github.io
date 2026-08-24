@@ -479,8 +479,7 @@
 
   /* ── 12.3 INTERACTIVE SKILLS ── */
   (function initSkills() {
-    // Full skill data
-    const skillData = {
+    var skillData = {
       'Ethical Hacking': {
         emoji: '🛡️', pct: 90, color: '#00ff88',
         desc: 'Deep expertise in ethical hacking methodologies — from reconnaissance and enumeration to exploitation and post-exploitation. Trained in real-world attack simulation and red-team operations.',
@@ -513,7 +512,7 @@
       },
       'Django': {
         emoji: '🌎', pct: 70, color: '#00d4ff',
-        desc: 'Full-stack web development using Django MVT architecture. Built REST APIs, authentication systems, and admin dashboards for real-world projects.',
+        desc: 'Full-stack web development using Django MVT architecture. Built REST APIs, authentication systems, and admin dashboards.',
         tools: ['Django REST Framework', 'Celery', 'PostgreSQL', 'Redis', 'Docker'],
         highlights: ['REST API design', 'User authentication', 'Admin dashboards', 'Template rendering']
       },
@@ -531,187 +530,182 @@
       },
       'Leadership': {
         emoji: '👑', pct: 90, color: '#ffaa00',
-        desc: 'Proven leader — founded Blumonk Digital Services, led campus chapters at Viral Fission, and managed teams during internships. Strong in decision-making and mentoring.',
+        desc: 'Proven leader — founded Blumonk Digital Services, led campus chapters at Viral Fission, and managed teams during internships.',
         tools: ['Team building', 'Mentoring', 'Conflict resolution', 'Strategic planning'],
         highlights: ['Founded Blumonk', 'Viral Fission Team Leader', 'Managed 10+ teams', 'Public speaking']
       },
       'Communication': {
         emoji: '🗣️', pct: 88, color: '#ffaa00',
-        desc: 'Excellent verbal and written communication — client presentations, technical writing, and public speaking. Multilingual communicator across professional settings.',
+        desc: 'Excellent verbal and written communication — client presentations, technical writing, and public speaking.',
         tools: ['Presentations', 'Technical writing', 'Client relations', 'Report writing'],
         highlights: ['Client pitches', 'Security reports', 'Team coordination', 'Workshop delivery']
       },
       'Team Management': {
         emoji: '🤝', pct: 85, color: '#ffaa00',
-        desc: 'Experienced in managing cross-functional teams, coordinating events, and driving project delivery through agile methodologies and clear communication.',
+        desc: 'Experienced in managing cross-functional teams, coordinating events, and driving project delivery through agile methodologies.',
         tools: ['Agile', 'Trello', 'Slack', 'Google Workspace', 'Notion'],
         highlights: ['Event coordination', 'Campaign management', 'Agile sprints', 'Resource allocation']
       },
       'Digital Marketing': {
         emoji: '📈', pct: 80, color: '#ffaa00',
-        desc: 'Comprehensive digital marketing expertise gained through running Blumonk Digital Services — SEO, social media management, content strategy, and performance analytics.',
+        desc: 'Comprehensive digital marketing expertise gained through running Blumonk Digital Services — SEO, social media, content strategy.',
         tools: ['Google Analytics', 'SEMrush', 'Canva', 'Meta Ads', 'Mailchimp'],
         highlights: ['SEO optimization', 'Social media growth', 'Content strategy', 'Ad campaigns']
       },
       'English': {
         emoji: '🇬🇧', pct: 95, color: '#a78bfa',
-        desc: 'Professional and academic fluency in English. Used as primary language for all professional communication, technical documentation, and presentations.',
+        desc: 'Professional and academic fluency in English. Primary language for all professional communication and documentation.',
         tools: [], highlights: ['Professional fluency', 'Technical writing', 'Academic papers', 'Client communication']
       },
       'Gujarati': {
         emoji: '🇮🇳', pct: 98, color: '#a78bfa',
-        desc: 'Native Gujarati speaker. Mother tongue used in everyday communication and cultural interactions in Surat, Gujarat.',
+        desc: 'Native Gujarati speaker. Mother tongue used in everyday communication and cultural interactions.',
         tools: [], highlights: ['Native speaker', 'Mother tongue', 'Cultural fluency', 'Regional networking']
       },
       'Hindi': {
         emoji: '🇮🇳', pct: 90, color: '#a78bfa',
-        desc: 'Fluent Hindi speaker — used for conversational and professional communication across India. Comfortable in formal and informal settings.',
+        desc: 'Fluent Hindi speaker — used for conversational and professional communication across India.',
         tools: [], highlights: ['Conversational fluency', 'Professional use', 'Pan-India communication']
       },
       'Spanish / German': {
         emoji: '🌍', pct: 35, color: '#a78bfa',
-        desc: 'Basic conversational level in Spanish and German. Currently learning through online courses and language exchange platforms.',
+        desc: 'Basic conversational level in Spanish and German. Currently learning through online courses.',
         tools: [], highlights: ['Basic conversation', 'Currently learning', 'Cultural interest']
       }
     };
 
-    // Create the skill modal
-    const modal = document.createElement('div');
-    modal.id = 'skill-modal';
-    modal.className = 'skill-modal';
-    modal.setAttribute('hidden', '');
-    modal.innerHTML = `
-      <div class="skill-modal-backdrop" id="skill-m-backdrop"></div>
-      <div class="skill-modal-box glass-card">
-        <button class="skill-modal-close" id="skill-m-close" aria-label="Close">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
-        </button>
-        <div class="skill-modal-top">
-          <div class="skill-ring-wrap">
-            <svg class="skill-ring" viewBox="0 0 120 120">
-              <circle class="skill-ring-bg" cx="60" cy="60" r="52" />
-              <circle class="skill-ring-fill" id="skill-ring-fill" cx="60" cy="60" r="52" />
-            </svg>
-            <span class="skill-ring-pct" id="skill-ring-pct">0%</span>
-          </div>
-          <div class="skill-modal-info">
-            <span class="skill-modal-emoji" id="skill-m-emoji"></span>
-            <h3 class="skill-modal-name" id="skill-m-name"></h3>
-          </div>
-        </div>
-        <p class="skill-modal-desc" id="skill-m-desc"></p>
-        <div class="skill-modal-tools-wrap" id="skill-m-tools-wrap">
-          <h4 class="skill-modal-label">Tools & Technologies</h4>
-          <div class="skill-modal-tools" id="skill-m-tools"></div>
-        </div>
-        <div>
-          <h4 class="skill-modal-label">Key Highlights</h4>
-          <div class="skill-modal-highlights" id="skill-m-highlights"></div>
-        </div>
-      </div>`;
+    // Build and inject skill modal HTML directly
+    var modalHTML = '<div id="skill-modal" class="skill-modal" hidden>'
+      + '<div class="skill-modal-backdrop" id="skill-m-backdrop"></div>'
+      + '<div class="skill-modal-box glass-card">'
+      + '<button class="skill-modal-close" id="skill-m-close" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></button>'
+      + '<div class="skill-modal-top">'
+      + '<div class="skill-ring-wrap"><svg class="skill-ring" viewBox="0 0 120 120"><circle class="skill-ring-bg" cx="60" cy="60" r="52"/><circle class="skill-ring-fill" id="skill-ring-fill" cx="60" cy="60" r="52"/></svg><span class="skill-ring-pct" id="skill-ring-pct">0%</span></div>'
+      + '<div class="skill-modal-info"><span class="skill-modal-emoji" id="skill-m-emoji"></span><h3 class="skill-modal-name" id="skill-m-name"></h3></div>'
+      + '</div>'
+      + '<p class="skill-modal-desc" id="skill-m-desc"></p>'
+      + '<div class="skill-modal-tools-wrap" id="skill-m-tools-wrap"><h4 class="skill-modal-label">Tools &amp; Technologies</h4><div class="skill-modal-tools" id="skill-m-tools"></div></div>'
+      + '<div><h4 class="skill-modal-label">Key Highlights</h4><div class="skill-modal-highlights" id="skill-m-highlights"></div></div>'
+      + '</div></div>';
+
+    var wrapper = document.createElement('div');
+    wrapper.innerHTML = modalHTML;
+    var modal = wrapper.firstElementChild;
     document.body.appendChild(modal);
 
-    const backdrop = document.getElementById('skill-m-backdrop');
-    const closeBtn = document.getElementById('skill-m-close');
-    const ringFill = document.getElementById('skill-ring-fill');
-    const ringPct  = document.getElementById('skill-ring-pct');
-    const mEmoji   = document.getElementById('skill-m-emoji');
-    const mName    = document.getElementById('skill-m-name');
-    const mDesc    = document.getElementById('skill-m-desc');
-    const mToolsW  = document.getElementById('skill-m-tools-wrap');
-    const mTools   = document.getElementById('skill-m-tools');
-    const mHigh    = document.getElementById('skill-m-highlights');
-
-    const circumference = 2 * Math.PI * 52;
-    ringFill.style.strokeDasharray = circumference;
+    var ringFill = document.getElementById('skill-ring-fill');
+    var ringPct  = document.getElementById('skill-ring-pct');
+    var circumference = 2 * Math.PI * 52;
+    if (ringFill) {
+      ringFill.style.strokeDasharray = circumference;
+      ringFill.style.strokeDashoffset = circumference;
+    }
 
     function openSkillModal(key) {
-      const d = skillData[key];
+      var d = skillData[key];
       if (!d) return;
-      mEmoji.textContent = d.emoji;
-      mName.textContent = key;
-      mDesc.textContent = d.desc;
+      document.getElementById('skill-m-emoji').textContent = d.emoji;
+      document.getElementById('skill-m-name').textContent = key;
+      document.getElementById('skill-m-desc').textContent = d.desc;
 
-      // Ring animation
-      ringFill.style.stroke = d.color;
-      ringFill.style.strokeDashoffset = circumference;
+      // Ring
+      if (ringFill) {
+        ringFill.style.transition = 'none';
+        ringFill.style.stroke = d.color;
+        ringFill.style.strokeDashoffset = circumference;
+      }
       ringPct.textContent = '0%';
       modal.removeAttribute('hidden');
       document.body.style.overflow = 'hidden';
 
-      // Animate ring after modal pops
-      requestAnimationFrame(() => {
-        setTimeout(() => {
-          const offset = circumference - (d.pct / 100) * circumference;
+      // Animate ring
+      setTimeout(function() {
+        if (ringFill) {
+          var offset = circumference - (d.pct / 100) * circumference;
           ringFill.style.transition = 'stroke-dashoffset 1.2s cubic-bezier(.4,0,.2,1)';
           ringFill.style.strokeDashoffset = offset;
-
-          // Count up percentage
-          let current = 0;
-          const target = d.pct;
-          const step = Math.ceil(target / 30);
-          const interval = setInterval(() => {
-            current += step;
-            if (current >= target) { current = target; clearInterval(interval); }
-            ringPct.textContent = current + '%';
-          }, 35);
-        }, 100);
-      });
+        }
+        var cur = 0, target = d.pct, step = Math.ceil(target / 30);
+        var iv = setInterval(function() {
+          cur += step;
+          if (cur >= target) { cur = target; clearInterval(iv); }
+          ringPct.textContent = cur + '%';
+        }, 35);
+      }, 120);
 
       // Tools
+      var toolsW = document.getElementById('skill-m-tools-wrap');
+      var toolsEl = document.getElementById('skill-m-tools');
       if (d.tools && d.tools.length) {
-        mToolsW.style.display = '';
-        mTools.innerHTML = d.tools.map(t => `<span class="skill-m-tag">${t}</span>`).join('');
+        toolsW.style.display = '';
+        toolsEl.innerHTML = d.tools.map(function(t) { return '<span class="skill-m-tag">' + t + '</span>'; }).join('');
       } else {
-        mToolsW.style.display = 'none';
+        toolsW.style.display = 'none';
       }
 
       // Highlights
-      mHigh.innerHTML = d.highlights.map(h => `<span class="skill-m-highlight">▹ ${h}</span>`).join('');
+      document.getElementById('skill-m-highlights').innerHTML = d.highlights.map(function(h) { return '<span class="skill-m-highlight">\u25B9 ' + h + '</span>'; }).join('');
     }
 
     function closeSkillModal() {
       modal.setAttribute('hidden', '');
       document.body.style.overflow = '';
-      ringFill.style.transition = 'none';
     }
 
-    // Attach click to each skill item
-    document.querySelectorAll('.skill-item').forEach(item => {
-      const name = item.querySelector('.skill-name');
-      if (!name) return;
-      const key = name.textContent.trim();
+    // Mark all skill items as clickable with data attribute
+    document.querySelectorAll('.skill-item').forEach(function(item) {
+      var nameEl = item.querySelector('.skill-name');
+      if (!nameEl) return;
+      var key = nameEl.textContent.trim();
       if (skillData[key]) {
-        // Add tooltip
-        const tip = document.createElement('span');
-        tip.className = 'skill-tooltip';
-        tip.textContent = skillData[key].emoji + ' Click for details';
-        item.appendChild(tip);
-
-        item.addEventListener('click', () => openSkillModal(key));
+        item.setAttribute('data-skill', key);
+        item.style.cursor = 'pointer';
       }
     });
 
-    // 3D tilt on skill category cards
-    document.querySelectorAll('.skill-category').forEach(card => {
-      card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const midX = rect.width / 2;
-        const midY = rect.height / 2;
-        const rotY = ((x - midX) / midX) * 8;
-        const rotX = ((midY - y) / midY) * 8;
-        card.style.transform = `translateY(-6px) scale(1.02) perspective(500px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+    // Use document-level event delegation for maximum reliability
+    document.addEventListener('click', function(e) {
+      // Check if click was on a skill item or inside one
+      var skillItem = e.target.closest('[data-skill]');
+      if (skillItem) {
+        var key = skillItem.getAttribute('data-skill');
+        if (key && skillData[key]) {
+          openSkillModal(key);
+          return;
+        }
+      }
+
+      // Close button
+      if (e.target.closest('#skill-m-close')) {
+        closeSkillModal();
+        return;
+      }
+
+      // Backdrop click
+      if (e.target.id === 'skill-m-backdrop') {
+        closeSkillModal();
+        return;
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeSkillModal();
+    });
+
+    // 3D tilt on cards
+    document.querySelectorAll('.skill-category').forEach(function(card) {
+      card.addEventListener('mousemove', function(e) {
+        var rect = card.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        var rotY = ((x - rect.width/2) / (rect.width/2)) * 8;
+        var rotX = ((rect.height/2 - y) / (rect.height/2)) * 8;
+        card.style.transform = 'translateY(-6px) scale(1.02) perspective(500px) rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg)';
       });
-      card.addEventListener('mouseleave', () => {
+      card.addEventListener('mouseleave', function() {
         card.style.transform = '';
       });
     });
-
-    closeBtn.addEventListener('click', closeSkillModal);
-    backdrop.addEventListener('click', closeSkillModal);
-    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeSkillModal(); });
   })();
 
   /* ── 12.5 EXPERIENCE MODAL ── */
