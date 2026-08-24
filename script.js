@@ -479,37 +479,216 @@
 
   /* ── 12.3 INTERACTIVE SKILLS ── */
   (function initSkills() {
-    // Skill descriptions for tooltips
-    const skillInfo = {
-      'Ethical Hacking': '🛡️ OWASP, Kali Linux, Metasploit, Social Engineering',
-      'Penetration Testing': '🔍 Web App, Network, API & Mobile Pentesting',
-      'Vulnerability Assessment': '📋 Nessus, OpenVAS, Qualys — risk scoring & reports',
-      'Network Security': '🌐 Firewalls, IDS/IPS, VPN, Packet Analysis',
-      'Python': '🐍 Automation, Scripting, Django, Flask, Security Tools',
-      'Django': '🌎 Full-stack web framework — REST APIs & MVT',
-      'JavaScript': '⚡ DOM, ES6+, Event-driven, Browser scripting',
-      'HTML / CSS': '🎨 Responsive layouts, animations, Flexbox & Grid',
-      'Leadership': '👑 Leading teams, decision-making, mentoring',
-      'Communication': '🗣️ Client presentations, technical writing, public speaking',
-      'Team Management': '🤝 Agile coordination, conflict resolution, delegation',
-      'Digital Marketing': '📈 SEO, Social Media, Content Strategy, Analytics',
-      'English': '🇬🇧 Professional & academic fluency',
-      'Gujarati': '🇮🇳 Native speaker — mother tongue',
-      'Hindi': '🇮🇳 Fluent — conversational & professional',
-      'Spanish / German': '🌍 Basic conversational level — learning'
+    // Full skill data
+    const skillData = {
+      'Ethical Hacking': {
+        emoji: '🛡️', pct: 90, color: '#00ff88',
+        desc: 'Deep expertise in ethical hacking methodologies — from reconnaissance and enumeration to exploitation and post-exploitation. Trained in real-world attack simulation and red-team operations.',
+        tools: ['Kali Linux', 'Metasploit', 'Burp Suite', 'Wireshark', 'Social Engineering Toolkit', 'Aircrack-ng'],
+        highlights: ['OWASP Top 10 mastery', 'CTF competitions', 'Bug bounty hunting', 'Red team operations']
+      },
+      'Penetration Testing': {
+        emoji: '🔍', pct: 85, color: '#00ff88',
+        desc: 'Hands-on experience in web app, network, API, and mobile penetration testing. Conducted full-scope pentests during VAPT internship at Jemistry Info Solutions.',
+        tools: ['Burp Suite Pro', 'Nmap', 'SQLmap', 'Nikto', 'Dirb', 'Hydra'],
+        highlights: ['Web App PenTesting', 'Network PenTesting', 'API Security Testing', 'Report Writing']
+      },
+      'Vulnerability Assessment': {
+        emoji: '📋', pct: 80, color: '#00ff88',
+        desc: 'Proficient in identifying, classifying, and prioritizing vulnerabilities using industry-standard scanners and manual testing techniques.',
+        tools: ['Nessus', 'OpenVAS', 'Qualys', 'OWASP ZAP', 'Acunetix'],
+        highlights: ['CVSS scoring', 'Risk assessment reports', 'Compliance checks', 'Remediation planning']
+      },
+      'Network Security': {
+        emoji: '🌐', pct: 75, color: '#00ff88',
+        desc: 'Strong foundation in securing network infrastructure — firewalls, IDS/IPS, VPNs, and real-time packet analysis for threat detection.',
+        tools: ['Wireshark', 'pfSense', 'Snort', 'tcpdump', 'Nmap', 'Netcat'],
+        highlights: ['Firewall configuration', 'Traffic analysis', 'Intrusion detection', 'VPN setup']
+      },
+      'Python': {
+        emoji: '🐍', pct: 85, color: '#00d4ff',
+        desc: 'Primary programming language for automation, security tool development, web backends, and scripting. Built multiple security tools and web applications.',
+        tools: ['Django', 'Flask', 'Scapy', 'Requests', 'BeautifulSoup', 'Cryptography'],
+        highlights: ['Security tool development', 'Web scraping', 'Automation scripts', 'API development']
+      },
+      'Django': {
+        emoji: '🌎', pct: 70, color: '#00d4ff',
+        desc: 'Full-stack web development using Django MVT architecture. Built REST APIs, authentication systems, and admin dashboards for real-world projects.',
+        tools: ['Django REST Framework', 'Celery', 'PostgreSQL', 'Redis', 'Docker'],
+        highlights: ['REST API design', 'User authentication', 'Admin dashboards', 'Template rendering']
+      },
+      'JavaScript': {
+        emoji: '⚡', pct: 65, color: '#00d4ff',
+        desc: 'Frontend development with vanilla JS and modern ES6+. Built interactive web interfaces, Chrome extensions, and dynamic portfolio features.',
+        tools: ['ES6+', 'DOM APIs', 'Fetch API', 'Chrome Extension APIs', 'Canvas'],
+        highlights: ['Interactive UIs', 'Chrome extensions', 'Animation effects', 'Event handling']
+      },
+      'HTML / CSS': {
+        emoji: '🎨', pct: 75, color: '#00d4ff',
+        desc: 'Responsive and accessible web design with modern CSS — Flexbox, Grid, animations, glassmorphism effects, and mobile-first layouts.',
+        tools: ['Flexbox', 'CSS Grid', 'CSS Animations', 'Media Queries', 'SVG'],
+        highlights: ['Responsive design', 'Glassmorphism', 'CSS animations', 'Accessibility']
+      },
+      'Leadership': {
+        emoji: '👑', pct: 90, color: '#ffaa00',
+        desc: 'Proven leader — founded Blumonk Digital Services, led campus chapters at Viral Fission, and managed teams during internships. Strong in decision-making and mentoring.',
+        tools: ['Team building', 'Mentoring', 'Conflict resolution', 'Strategic planning'],
+        highlights: ['Founded Blumonk', 'Viral Fission Team Leader', 'Managed 10+ teams', 'Public speaking']
+      },
+      'Communication': {
+        emoji: '🗣️', pct: 88, color: '#ffaa00',
+        desc: 'Excellent verbal and written communication — client presentations, technical writing, and public speaking. Multilingual communicator across professional settings.',
+        tools: ['Presentations', 'Technical writing', 'Client relations', 'Report writing'],
+        highlights: ['Client pitches', 'Security reports', 'Team coordination', 'Workshop delivery']
+      },
+      'Team Management': {
+        emoji: '🤝', pct: 85, color: '#ffaa00',
+        desc: 'Experienced in managing cross-functional teams, coordinating events, and driving project delivery through agile methodologies and clear communication.',
+        tools: ['Agile', 'Trello', 'Slack', 'Google Workspace', 'Notion'],
+        highlights: ['Event coordination', 'Campaign management', 'Agile sprints', 'Resource allocation']
+      },
+      'Digital Marketing': {
+        emoji: '📈', pct: 80, color: '#ffaa00',
+        desc: 'Comprehensive digital marketing expertise gained through running Blumonk Digital Services — SEO, social media management, content strategy, and performance analytics.',
+        tools: ['Google Analytics', 'SEMrush', 'Canva', 'Meta Ads', 'Mailchimp'],
+        highlights: ['SEO optimization', 'Social media growth', 'Content strategy', 'Ad campaigns']
+      },
+      'English': {
+        emoji: '🇬🇧', pct: 95, color: '#a78bfa',
+        desc: 'Professional and academic fluency in English. Used as primary language for all professional communication, technical documentation, and presentations.',
+        tools: [], highlights: ['Professional fluency', 'Technical writing', 'Academic papers', 'Client communication']
+      },
+      'Gujarati': {
+        emoji: '🇮🇳', pct: 98, color: '#a78bfa',
+        desc: 'Native Gujarati speaker. Mother tongue used in everyday communication and cultural interactions in Surat, Gujarat.',
+        tools: [], highlights: ['Native speaker', 'Mother tongue', 'Cultural fluency', 'Regional networking']
+      },
+      'Hindi': {
+        emoji: '🇮🇳', pct: 90, color: '#a78bfa',
+        desc: 'Fluent Hindi speaker — used for conversational and professional communication across India. Comfortable in formal and informal settings.',
+        tools: [], highlights: ['Conversational fluency', 'Professional use', 'Pan-India communication']
+      },
+      'Spanish / German': {
+        emoji: '🌍', pct: 35, color: '#a78bfa',
+        desc: 'Basic conversational level in Spanish and German. Currently learning through online courses and language exchange platforms.',
+        tools: [], highlights: ['Basic conversation', 'Currently learning', 'Cultural interest']
+      }
     };
 
-    // Add tooltips to each skill item
+    // Create the skill modal
+    const modal = document.createElement('div');
+    modal.id = 'skill-modal';
+    modal.className = 'skill-modal';
+    modal.setAttribute('hidden', '');
+    modal.innerHTML = `
+      <div class="skill-modal-backdrop" id="skill-m-backdrop"></div>
+      <div class="skill-modal-box glass-card">
+        <button class="skill-modal-close" id="skill-m-close" aria-label="Close">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </button>
+        <div class="skill-modal-top">
+          <div class="skill-ring-wrap">
+            <svg class="skill-ring" viewBox="0 0 120 120">
+              <circle class="skill-ring-bg" cx="60" cy="60" r="52" />
+              <circle class="skill-ring-fill" id="skill-ring-fill" cx="60" cy="60" r="52" />
+            </svg>
+            <span class="skill-ring-pct" id="skill-ring-pct">0%</span>
+          </div>
+          <div class="skill-modal-info">
+            <span class="skill-modal-emoji" id="skill-m-emoji"></span>
+            <h3 class="skill-modal-name" id="skill-m-name"></h3>
+          </div>
+        </div>
+        <p class="skill-modal-desc" id="skill-m-desc"></p>
+        <div class="skill-modal-tools-wrap" id="skill-m-tools-wrap">
+          <h4 class="skill-modal-label">Tools & Technologies</h4>
+          <div class="skill-modal-tools" id="skill-m-tools"></div>
+        </div>
+        <div>
+          <h4 class="skill-modal-label">Key Highlights</h4>
+          <div class="skill-modal-highlights" id="skill-m-highlights"></div>
+        </div>
+      </div>`;
+    document.body.appendChild(modal);
+
+    const backdrop = document.getElementById('skill-m-backdrop');
+    const closeBtn = document.getElementById('skill-m-close');
+    const ringFill = document.getElementById('skill-ring-fill');
+    const ringPct  = document.getElementById('skill-ring-pct');
+    const mEmoji   = document.getElementById('skill-m-emoji');
+    const mName    = document.getElementById('skill-m-name');
+    const mDesc    = document.getElementById('skill-m-desc');
+    const mToolsW  = document.getElementById('skill-m-tools-wrap');
+    const mTools   = document.getElementById('skill-m-tools');
+    const mHigh    = document.getElementById('skill-m-highlights');
+
+    const circumference = 2 * Math.PI * 52;
+    ringFill.style.strokeDasharray = circumference;
+
+    function openSkillModal(key) {
+      const d = skillData[key];
+      if (!d) return;
+      mEmoji.textContent = d.emoji;
+      mName.textContent = key;
+      mDesc.textContent = d.desc;
+
+      // Ring animation
+      ringFill.style.stroke = d.color;
+      ringFill.style.strokeDashoffset = circumference;
+      ringPct.textContent = '0%';
+      modal.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+
+      // Animate ring after modal pops
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          const offset = circumference - (d.pct / 100) * circumference;
+          ringFill.style.transition = 'stroke-dashoffset 1.2s cubic-bezier(.4,0,.2,1)';
+          ringFill.style.strokeDashoffset = offset;
+
+          // Count up percentage
+          let current = 0;
+          const target = d.pct;
+          const step = Math.ceil(target / 30);
+          const interval = setInterval(() => {
+            current += step;
+            if (current >= target) { current = target; clearInterval(interval); }
+            ringPct.textContent = current + '%';
+          }, 35);
+        }, 100);
+      });
+
+      // Tools
+      if (d.tools && d.tools.length) {
+        mToolsW.style.display = '';
+        mTools.innerHTML = d.tools.map(t => `<span class="skill-m-tag">${t}</span>`).join('');
+      } else {
+        mToolsW.style.display = 'none';
+      }
+
+      // Highlights
+      mHigh.innerHTML = d.highlights.map(h => `<span class="skill-m-highlight">▹ ${h}</span>`).join('');
+    }
+
+    function closeSkillModal() {
+      modal.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      ringFill.style.transition = 'none';
+    }
+
+    // Attach click to each skill item
     document.querySelectorAll('.skill-item').forEach(item => {
       const name = item.querySelector('.skill-name');
       if (!name) return;
       const key = name.textContent.trim();
-      const info = skillInfo[key];
-      if (info) {
+      if (skillData[key]) {
+        // Add tooltip
         const tip = document.createElement('span');
         tip.className = 'skill-tooltip';
-        tip.textContent = info;
+        tip.textContent = skillData[key].emoji + ' Click for details';
         item.appendChild(tip);
+
+        item.addEventListener('click', () => openSkillModal(key));
       }
     });
 
@@ -530,19 +709,9 @@
       });
     });
 
-    // Click on skill item flashes the bar
-    document.querySelectorAll('.skill-item').forEach(item => {
-      item.addEventListener('click', () => {
-        const bar = item.querySelector('.skill-bar');
-        if (!bar) return;
-        bar.style.boxShadow = '0 0 20px var(--clr-green), 0 0 40px rgba(0,255,136,0.3)';
-        bar.style.filter = 'brightness(1.4)';
-        setTimeout(() => {
-          bar.style.boxShadow = '0 0 6px rgba(0,255,136,0.3)';
-          bar.style.filter = '';
-        }, 600);
-      });
-    });
+    closeBtn.addEventListener('click', closeSkillModal);
+    backdrop.addEventListener('click', closeSkillModal);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeSkillModal(); });
   })();
 
   /* ── 12.5 EXPERIENCE MODAL ── */
