@@ -477,6 +477,74 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
   })();
 
+  /* ── 12.3 INTERACTIVE SKILLS ── */
+  (function initSkills() {
+    // Skill descriptions for tooltips
+    const skillInfo = {
+      'Ethical Hacking': '🛡️ OWASP, Kali Linux, Metasploit, Social Engineering',
+      'Penetration Testing': '🔍 Web App, Network, API & Mobile Pentesting',
+      'Vulnerability Assessment': '📋 Nessus, OpenVAS, Qualys — risk scoring & reports',
+      'Network Security': '🌐 Firewalls, IDS/IPS, VPN, Packet Analysis',
+      'Python': '🐍 Automation, Scripting, Django, Flask, Security Tools',
+      'Django': '🌎 Full-stack web framework — REST APIs & MVT',
+      'JavaScript': '⚡ DOM, ES6+, Event-driven, Browser scripting',
+      'HTML / CSS': '🎨 Responsive layouts, animations, Flexbox & Grid',
+      'Leadership': '👑 Leading teams, decision-making, mentoring',
+      'Communication': '🗣️ Client presentations, technical writing, public speaking',
+      'Team Management': '🤝 Agile coordination, conflict resolution, delegation',
+      'Digital Marketing': '📈 SEO, Social Media, Content Strategy, Analytics',
+      'English': '🇬🇧 Professional & academic fluency',
+      'Gujarati': '🇮🇳 Native speaker — mother tongue',
+      'Hindi': '🇮🇳 Fluent — conversational & professional',
+      'Spanish / German': '🌍 Basic conversational level — learning'
+    };
+
+    // Add tooltips to each skill item
+    document.querySelectorAll('.skill-item').forEach(item => {
+      const name = item.querySelector('.skill-name');
+      if (!name) return;
+      const key = name.textContent.trim();
+      const info = skillInfo[key];
+      if (info) {
+        const tip = document.createElement('span');
+        tip.className = 'skill-tooltip';
+        tip.textContent = info;
+        item.appendChild(tip);
+      }
+    });
+
+    // 3D tilt on skill category cards
+    document.querySelectorAll('.skill-category').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const midX = rect.width / 2;
+        const midY = rect.height / 2;
+        const rotY = ((x - midX) / midX) * 8;
+        const rotX = ((midY - y) / midY) * 8;
+        card.style.transform = `translateY(-6px) scale(1.02) perspective(500px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+
+    // Click on skill item flashes the bar
+    document.querySelectorAll('.skill-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const bar = item.querySelector('.skill-bar');
+        if (!bar) return;
+        bar.style.boxShadow = '0 0 20px var(--clr-green), 0 0 40px rgba(0,255,136,0.3)';
+        bar.style.filter = 'brightness(1.4)';
+        setTimeout(() => {
+          bar.style.boxShadow = '0 0 6px rgba(0,255,136,0.3)';
+          bar.style.filter = '';
+        }, 600);
+      });
+    });
+  })();
+
   /* ── 12.5 EXPERIENCE MODAL ── */
   (function initExpModal() {
     const expData = {
