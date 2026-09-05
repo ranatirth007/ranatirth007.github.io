@@ -565,6 +565,7 @@ body.cursor-hover #cursor-trail {
 .skill-item:hover {
   background: rgba(0,255,136,0.04);
   transform: translateX(4px);
+  cursor: pointer;
 }
 .skill-name {
   font-size: 0.88rem;
@@ -661,9 +662,9 @@ body.cursor-hover #cursor-trail {
 }
 
 /* Skill Detail Modal */
-.skill-modal { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; }
+.skill-modal { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; cursor: auto; }
 .skill-modal[hidden] { display: none; }
-.skill-modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.skill-modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); cursor: pointer; }
 .skill-modal-box {
   position: relative; z-index: 1;
   max-width: 480px; width: 92vw;
